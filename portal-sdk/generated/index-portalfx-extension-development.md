@@ -1406,6 +1406,23 @@ public context: TemplateBlade.Context<void, BladesArea.DataContext>;
 
 ```
 
+In order to generate the required metadata about your blade, you need to make the following changes in your project file:
+
+1. Add the appropriate TypeScript compiler flags to enable decorator support (once per project)
+
+```
+<TypeScriptEmitDecoratorMetadata>True</TypeScriptEmitDecoratorMetadata>
+<TypeScriptExperimentalDecorators>True</TypeScriptExperimentalDecorators>
+```
+
+2. Add the `PortalFxPreCompile` child element to the `TypeScriptCompile` element for your Blade (once per Blade)
+
+```
+<TypeScriptCompile Include="MyBlade.ts">
+  <PortalFxPrecompile>true</PortalFxPrecompile>
+</TypeScriptCompile>
+```
+
 <a name="basic-concepts-typescript-decorator-support-for-extension-metadata-formerly-known-as-no-pdl-or-no-pdl-building-a-menu-blade-using-decorators"></a>
 ### Building a menu blade using decorators
 
